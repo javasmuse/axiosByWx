@@ -1,0 +1,38 @@
+body {
+    background-color: darkslategray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 0.5px 0.5px gray;
+}
+
+.out-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.main-box {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin: 4em 0 0 0;
+}
+
+.second-box {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+h1,
+#city,
+#temp,
+#windD,
+#windS,
+p {
+    font-size: 2em;
+    margin-right: 1em;
+}
