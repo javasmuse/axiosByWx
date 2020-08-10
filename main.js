@@ -21,6 +21,22 @@ fetch('https://api.openweathermap.org/data/2.5/weather?zip=34232&units=imperial&
     const currPlace = document.getElementById('condy');
     currPlace.innerHTML = currently;
 
+    // date and time
+    function UnixTimeStamp2(t) {
+        var dt = new Date(t * 1000);
+        // var hr = dt.getHours();
+        // var m = "0" + dt.getMinutes();
+        // var s = "0" + dt.getSeconds();
+        return dt;
+    }
+
+    const tod = data.dt;
+
+    const todC = UnixTimeStamp2(tod);
+    const todayPlace = document.getElementById('today');
+    todayPlace.innerHTML = todC;
+
+
     //sunrise / set and convert from UNIX timestamp
     function UnixTimeStamp(t) {
         var dt = new Date(t * 1000);
@@ -29,6 +45,7 @@ fetch('https://api.openweathermap.org/data/2.5/weather?zip=34232&units=imperial&
         var s = "0" + dt.getSeconds();
         return hr + ':' + m.substr(-2) + ':' + s.substr(-2);
     }
+
     const sunrise = data.sys.sunrise;
     const sunriseC = UnixTimeStamp(sunrise);
     const sunrisePlace = document.getElementById('sunny');

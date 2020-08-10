@@ -24,16 +24,18 @@ body {
     justify-content: center;
 }
 
-.main-box {
+.today-box {
     display: flex;
     align-items: center;
     align-content: center;
     justify-content: center;
-    margin: 2em 0 0 0;
+    margin: 2em 0 1em 0;
+    font-size: x-large;
 }
 
 .temp-box,
-.descrip-box {
+.descrip-box,
+.main-box {
     display: flex;
     align-items: center;
     align-content: center;
@@ -63,11 +65,12 @@ h1,
 #condy,
 #sunny,
 #setty,
+#today,
 p {
-    font-size: 2em;
+    font-size: x-large;
     margin-right: 1em;
 }
 
 #temp {
-    font-size: 2em;
+    font-size: x-large;
 }
