@@ -1,21 +1,4 @@
-console.log('Hello Candace');
-
-// const event = new Date();
-// let year = event.getFullYear();
-// console.log('month  :' + event.getMonth());
-// let month = event.getMonth();
-// console.log('day  :' + event.getDate());
-// let day = event.getDate();
-// fetch(`https://api.sunrise-sunset.org/json?lat=27.3304986&lng=-82.4611353,&date=${year}-${month}-${day}&formatted=0`)
-//     .then((response) => {
-//         return response.json();
-//     }).then((data) => {
-//         console.log(data);
-
-//     }).catch((err) => {
-//         console.warn(err);
-//     });
-
+// fetch the weather from open weather api
 fetch('https://api.openweathermap.org/data/2.5/weather?zip=34232&units=imperial&appid=6e0d8a14c454b5a04af88b6054f71f99').then((response) => {
     return response.json();
 }).then((data) => {
@@ -32,6 +15,29 @@ fetch('https://api.openweathermap.org/data/2.5/weather?zip=34232&units=imperial&
     const temp = Math.round(tempFloat);
     const tempPlace = document.getElementById('temp');
     tempPlace.innerHTML = temp;
+
+    //current conditions
+    const currently = data.weather[0].main;
+    const currPlace = document.getElementById('condy');
+    currPlace.innerHTML = currently;
+
+    //sunrise / set and convert from UNIX timestamp
+    function UnixTimeStamp(t) {
+        var dt = new Date(t * 1000);
+        var hr = dt.getHours();
+        var m = "0" + dt.getMinutes();
+        var s = "0" + dt.getSeconds();
+        return hr + ':' + m.substr(-2) + ':' + s.substr(-2);
+    }
+    const sunrise = data.sys.sunrise;
+    const sunriseC = UnixTimeStamp(sunrise);
+    const sunrisePlace = document.getElementById('sunny');
+    sunrisePlace.innerHTML = sunriseC;
+
+    const sunset = data.sys.sunset;
+    sunsetC = UnixTimeStamp(sunset);
+    const sunsetPlace = document.getElementById('setty');
+    sunsetPlace.innerHTML = sunsetC;
 
     //wind direction
     const convertWD = data.wind.deg;
@@ -51,7 +57,6 @@ fetch('https://api.openweathermap.org/data/2.5/weather?zip=34232&units=imperial&
         } else if (windy > 56 && windy <= 78) {
             windConversion = 'ENE';
             return (windConversion);
-
         } else if (windy > 78 && windy <= 101) {
             windConversion = 'E';
             return (windConversion);

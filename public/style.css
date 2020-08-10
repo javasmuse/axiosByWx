@@ -20,6 +20,15 @@ body {
     margin: 4em 0 0 0;
 }
 
+.temp-box,
+.descrip-box,
+.sunrise-set-box {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
 .second-box {
     display: flex;
     align-items: center;
@@ -29,10 +38,16 @@ body {
 
 h1,
 #city,
-#temp,
 #windD,
 #windS,
+#condy,
+#sunny,
+#setty,
 p {
     font-size: 2em;
     margin-right: 1em;
+}
+
+#temp {
+    font-size: 2em;
 }
